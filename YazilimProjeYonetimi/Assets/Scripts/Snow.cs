@@ -6,11 +6,14 @@ public class Snow : MonoBehaviour
 {
     private SpriteRenderer spr;
     private bool isSnowing = false;
+    private GameObject player;
+    private GameObject baby;
     void Start()
     {
         spr = GetComponent<SpriteRenderer>();
         spr.enabled = false;
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        baby = GameObject.FindGameObjectWithTag("Baby");
     }
 
     
@@ -32,6 +35,8 @@ public class Snow : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(10f, 30f));
         spr.enabled = true;
+        player.GetComponent<PlayerWalk>().TakeDamage(10);
+        baby.GetComponent<PlayerWalk>().TakeDamage(25);
         StartCoroutine(disableSnow());
     }
 
