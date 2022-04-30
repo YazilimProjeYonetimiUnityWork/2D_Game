@@ -10,6 +10,7 @@ public class controllerScript : MonoBehaviour
     private Text text;
     private Button close;
     private Image textImage;
+    public bool value;
     void Awake()
     {
         text = GameObject.Find("text").GetComponent<Text>();
@@ -22,11 +23,19 @@ public class controllerScript : MonoBehaviour
         close.gameObject.SetActive(false);
         text.enabled = false;
         textImage.enabled = false;
+        value = false;
 
     }
     public void playButton()
     {
-        SceneManager.LoadScene("Game");
+        if (value)
+        {
+            SceneManager.LoadScene("EasyGame");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
     public void closeButton()
     {
@@ -65,5 +74,10 @@ public class controllerScript : MonoBehaviour
         text.enabled = true;
         close.gameObject.SetActive(true);
         textImage.enabled = true;
+    }
+
+    public void toggleButton()
+    {
+        value = true;
     }
 }
