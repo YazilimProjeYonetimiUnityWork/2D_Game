@@ -18,6 +18,8 @@ public class CameraFollow : MonoBehaviour
 
     private bool followPlayer;
 
+    AudioSource audioSource;
+
     void Awake()
     {
         BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
@@ -30,6 +32,7 @@ public class CameraFollow : MonoBehaviour
         lastPlayerPosition = player.position;
         offsetZ = (transform.position - player.position).z;
         followPlayer = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWalk : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class PlayerWalk : MonoBehaviour
         if (h > 0)
         {
             myBody.velocity = new Vector2(speed, myBody.velocity.y);
+            SoundScript.PlaySound("walk");
         }
         else
         {
@@ -59,14 +61,22 @@ public class PlayerWalk : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0f;
+            SceneManager.LoadScene("LoseGame");
         }
         
     }
 
     public void Heal(int heal)
     {
-        currentHealth += heal;
-        healthBar.SetHealth(currentHealth);
+        if (currentHealth > 100)
+        {
+            currentHealth = 100;
+            healthBar.SetHealth(currentHealth);
+        }
+        else
+        {
+            currentHealth += heal;
+            healthBar.SetHealth(currentHealth);
+        }
     }
 }

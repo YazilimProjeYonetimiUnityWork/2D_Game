@@ -16,6 +16,7 @@ public class BabyHeal : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.H))
         {
             healBaby();
+            SoundScript.PlaySound("heal");
         }
     }
     void healBaby()
