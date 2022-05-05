@@ -28,14 +28,11 @@ public class controllerScript : MonoBehaviour
     }
     public void playButton()
     {
-        if (value)
-        {
-            SceneManager.LoadScene("EasyGame");
-        }
-        else
-        {
-            SceneManager.LoadScene("Game");
-        }
+        SceneManager.LoadScene("Game");
+    }
+    public void playEasyButton()
+    {
+        SceneManager.LoadScene("EasyGame");
     }
     public void closeButton()
     {
@@ -63,14 +60,22 @@ public class controllerScript : MonoBehaviour
     }
     public void helpText()
     {
-        text.text = "D ÝLERÝ GÝT / H BEBEÐE CAN VER";
+        text.text = "Oyunda iki seviye bulunmaktadýr. Ýlk açýlýþta oynanmak istenen seviye seçilir. Seviye seçiminden sonra oyun baþlamaktadýr." +
+            " Klavyenizde yer alan “D” veya “-->” tuþu ile þerife bacý karakterini ve kaðnýyý X yönünde ileri doðru hareket ettirebilirsiniz. " +
+            "Oyunda geçen süre boyunca oyun içerisinde kar yaðýþlarý meydana gelecektir. Bu nedenler þerife bacýnýn ve bebeðin Can seviyelerinde azalma" +
+            " meydana gelecektir. Klavyenizde yer alan “H” tuþu ile bebek karakterin canýný arttýrabilirsiniz. Oyun bitiþ konumuna geldiðinizde sonlanacaktýr.";
         text.enabled = true;
         close.gameObject.SetActive(true);
         textImage.enabled = true;
     }
     public void developersInfoText()
     {
-        text.text = "MURAT AKÇAY - HAMZA MERT ÖZATA";
+        text.text = "Oyun hakkýnda daha fazla bilgiye Ana Menüde yer alan HELP, HISTORY ,DEVELOPERS butonlarýna týklayarak " +
+            "ulaþabilirsiniz.Hakkýmýzda daha fazla bilgi ve sizlere sunabileceðimiz diðer  hizmetler için Manisa Celal Bayar Üniversitesi / " +
+            "Hasan Ferdi Turgutlu Teknoloji Fakültesi'nde bizi ziyaret edin. Acarlar, Þehit, Ali Karakuzu Sk.No:10, 45400 Turgutlu / Manisa \n\n" +
+            "Geliþtirme Ekibi :\n\n" +
+            "MURAT AKÇAY\n" +
+            "HAMZA MERT ÖZATA";
         text.enabled = true;
         close.gameObject.SetActive(true);
         textImage.enabled = true;
